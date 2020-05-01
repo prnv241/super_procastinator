@@ -1,22 +1,10 @@
+
 import React, { Component } from 'react';
 import { Container, ListGroup, ListGroupItem, Button, Modal, ModalHeader, ModalBody, Row, Label } from 'reactstrap';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import { connect } from 'react-redux';
-import { fetchTodos, addTodo, delTodo } from '../redux/actionCreaters';
 import { Loading } from './loading';
 import { Control, Form } from 'react-redux-form';
 
-const mapStateToProps = (state) => {
-  return {
-    todos: state.todos,
-  }
-}
-
-const mapDispatchToProps = (dispatch) => ({
-  addTodo: (todo) => dispatch(addTodo(todo)),
-  fetchTodos: () => dispatch(fetchTodos()),
-  delTodo: (todoid) => dispatch(delTodo(todoid))
-})
 class TodoList extends Component {
   constructor(props) {
     super(props);
@@ -31,17 +19,14 @@ class TodoList extends Component {
   }
   handleSubmit = (values) => {
     this.toggleModal();
+    this.props.resetFeedbackForm();
     this.props.addTodo(values.name);
   }
   removetodo = (todoid) => {
     this.props.delTodo(todoid);
   }
-  componentDidMount() {
-    this.props.fetchTodos();
-  }
   render() {
-    console.log("load" + this.props.isLoading);
-    if (this.props.todos.isLoading) {
+    if (this.props.isLoading) {
       return (
         <div className="container">
           <div className="row">
@@ -50,7 +35,7 @@ class TodoList extends Component {
         </div>
       );
     }
-    else if (this.props.todos.errMess) {
+    else if (this.props.errMess) {
       return (
         <div className="container">
           <div className="row">
@@ -100,4 +85,4 @@ class TodoList extends Component {
   }
 }
 
-export default connect(mapStateToProps, mapDispatchToProps)(TodoList);
+export default TodoList;
