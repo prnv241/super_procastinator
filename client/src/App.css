@@ -41,3 +41,50 @@
   transform: translateX(100%);
   transition: all 300ms ease-out;
 }
+
+.sidebar {
+  background-color: #E0E0E0;
+  height: 92.5vh;
+  padding-top: 5%;
+  width: 20vw;
+}
+
+.sidebar .sidebar-item {
+  background-color: #E0E0E0;
+  color: black;
+}
+
+.sidebar h3 {
+  padding: 15px;
+}
+
+.sidebar .nav-link {
+  color: black;
+}
+
+.main {
+  height: 78vh;
+  overflow-y: scroll;
+}
+
+.list-unstyled li {
+  height: 150px;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  background-color: #E0E0E0;
+}
+
+.list-unstyled img {
+  height: 150px;
+  width: 150px;
+}
+
+#divElement {
+  position: absolute;
+  top: 50%;
+  left: 40%;
+  margin-top: -50px;
+  margin-left: -50px;
+  width: 100px;
+  height: 100px;
+}

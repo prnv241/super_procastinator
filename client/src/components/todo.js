@@ -4,8 +4,27 @@ import { Container, ListGroup, ListGroupItem, Button, Modal, ModalHeader, ModalB
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import { Loading } from './loading';
 import { Control, Form } from 'react-redux-form';
+import { actions } from 'react-redux-form';
+import { fetchTodos, addTodo, delTodo } from '../redux/actionCreaters';
+import { connect } from 'react-redux';
+
+const mapStateToProps = (state) => {
+  return {
+    todos: state.todos,
+  }
+}
+
+const mapDispatchToProps = (dispatch) => ({
+  addTodo: (todo) => dispatch(addTodo(todo)),
+  fetchTodos: () => dispatch(fetchTodos()),
+  delTodo: (todoid) => dispatch(delTodo(todoid)),
+  resetFeedbackForm: () => { dispatch(actions.reset('feedback')) },
+});
 
 class TodoList extends Component {
+  componentDidMount() {
+    this.props.fetchTodos();
+  }
   constructor(props) {
     super(props);
     this.state = {
@@ -26,7 +45,7 @@ class TodoList extends Component {
     this.props.delTodo(todoid);
   }
   render() {
-    if (this.props.isLoading) {
+    if (this.props.todos.isLoading) {
       return (
         <div className="container">
           <div className="row">
@@ -35,7 +54,7 @@ class TodoList extends Component {
         </div>
       );
     }
-    else if (this.props.errMess) {
+    else if (this.props.todos.errMess) {
       return (
         <div className="container">
           <div className="row">
@@ -47,7 +66,9 @@ class TodoList extends Component {
     else if (this.props.todos != null) {
       const { todos } = this.props.todos;
       return (
-        <Container>
+        <Container className="main mt-4">
+          <h2>Todo List for SuperPro's</h2>
+          <p>Save all your super procastinator tasks here so you wont get lost wandering on internet</p>
           <Button color="dark" style={{ marginBottom: '2rem' }} onClick={this.toggleModal}>Add Item</Button>
           <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
             <ModalHeader toggle={this.toggleModal}>Add new Todo</ModalHeader>
@@ -85,4 +106,4 @@ class TodoList extends Component {
   }
 }
 
-export default TodoList;
+export default connect(mapStateToProps,mapDispatchToProps)(TodoList);
