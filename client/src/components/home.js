@@ -35,17 +35,17 @@ const Home = (props) => {
         </div>
         <div class="col md-3">
           <div className="card mr-0">
-            <a href="https://netflix.com"><img src="https://cdn.pixabay.com/photo/2019/05/08/00/31/netflix-4187478_960_720.png" className="card-img-top" alt="Netflix"/></a>
+            <a href="https://www.primevideo.com/"><img src="https://logodownload.org/wp-content/uploads/2019/10/amazon-prime-logo-0.png" className="card-img-top" alt="Amazon Prime"/></a>
           </div>
         </div>
         <div class="col md-3">
           <div className="card mr-0">
-            <a href="https://netflix.com"><img src="https://cdn.pixabay.com/photo/2019/05/08/00/31/netflix-4187478_960_720.png" className="card-img-top" alt="Netflix"/></a>
+            <a href="www.crunchyroll.com"><img src="https://www.pngitem.com/pimgs/m/657-6574815_crunchyroll-logo-vertical-crunchyroll-logo-black-and-white.png" className="card-img-top" alt="Crunchyroll"/></a>
           </div>
         </div>
         <div class="col md-3">
           <div className="card mr-0">
-            <a href="https://netflix.com"><img src="https://cdn.pixabay.com/photo/2019/05/08/00/31/netflix-4187478_960_720.png" className="card-img-top" alt="Netflix"/></a>
+            <a href="https://curiositystream.com"><img src="https://download.logo.wine/logo/CuriosityStream/CuriosityStream-Logo.wine.png" className="card-img-top" alt="Curiasity Stream"/></a>
           </div>
         </div>
       </div>

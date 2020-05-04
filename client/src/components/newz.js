@@ -55,13 +55,18 @@ function RenderNews(props) {
   }
   else if(props.news.news.articles) {
     const news = props.news.news.articles.map((newa,index) => {
+      if(newa.description != null)
+      var desc = newa.description.substring(0,200);
+      else 
+      var desc = '';
+      
       return(
         <li className="media" key={index}>
           <img src={newa.urlToImage} className="mr-3" alt="thumbnail"/>
           <div className="media-body">
             <a style={{fontSize: "1.3rem", color: "black"}} href={newa.url}>{newa.title}</a>
             <h5>{newa.author}</h5>
-            <p>{newa.description.substring(0,200)}</p>
+            <p>{desc}</p>
           </div>
         </li>
       );
