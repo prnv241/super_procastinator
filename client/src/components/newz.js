@@ -21,10 +21,10 @@ class News extends Component {
     return(
       <>
         <div className="container mb-4">
-          <button className="btn btn-dark m-3" onClick={() => this.props.fetchNews('http://newsapi.org/v2/everything?q=bitcoin&from=2020-04-03&sortBy=publishedAt&apiKey=')}>Bitcoin</button>
-          <button className="btn btn-dark m-3" onClick={() => this.props.fetchNews('http://newsapi.org/v2/everything?q=hack&from=2020-04-03&sortBy=publishedAt&apiKey=')}>Hacker</button>
-          <button className="btn btn-dark m-3" onClick={() => this.props.fetchNews('http://newsapi.org/v2/everything?q=tech&from=2020-04-03&sortBy=publishedAt&apiKey=')}>Tech</button>
-          <button className="btn btn-dark m-3" onClick={() => this.props.fetchNews('http://newsapi.org/v2/everything?q=gaming&from=2020-04-03&sortBy=publishedAt&apiKey=')}>Gaming</button>
+          <button className="btn btn-dark m-3" onClick={() => this.props.fetchNews('http://newsapi.org/v2/everything?q=bitcoin&sortBy=publishedAt&apiKey=')}>Bitcoin</button>
+          <button className="btn btn-dark m-3" onClick={() => this.props.fetchNews('http://newsapi.org/v2/everything?q=hack&sortBy=publishedAt&apiKey=')}>Hacker</button>
+          <button className="btn btn-dark m-3" onClick={() => this.props.fetchNews('http://newsapi.org/v2/everything?q=tech&sortBy=publishedAt&apiKey=')}>Tech</button>
+          <button className="btn btn-dark m-3" onClick={() => this.props.fetchNews('http://newsapi.org/v2/everything?q=gaming&sortBy=publishedAt&apiKey=')}>Gaming</button>
         </div>
         <ul className="list-unstyled">
           <RenderNews news={this.props.news} />
